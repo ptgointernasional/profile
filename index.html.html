@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT. GO INTERNASIONAL – Agen Properti & Penawaran Lahan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #1b5e35;
+  --green-mid: #236b40;
+  --green-light: #2d8550;
+  --green-dark: #0d3a1e;
+  --green-xdark: #071f10;
+  --gold: #c49a28;
+  --gold-light: #d9ae3a;
+  --gold-pale: #faf4e1;
+  --gold-xpale: #fdf9ee;
+  --cream: #f9f7f1;
+  --white: #ffffff;
+  --gray: #6b7280;
+  --gray-light: #f0ede6;
+  --text: #141410;
+  --border: rgba(0,0,0,0.08);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+
+/* ══════════════════ NAV ══════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(196,154,40,0.15);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:72px;
+  transition:box-shadow 0.4s;
+}
+nav.scrolled{box-shadow:0 8px 40px rgba(0,0,0,0.07);}
+.nav-logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+.logo-img{
+    height:40px; /* ukuran kecil */
+    width:auto;
+    display:block;
+}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{
+  text-decoration:none;font-size:0.78rem;font-weight:500;
+  color:var(--gray);letter-spacing:0.07em;text-transform:uppercase;
+  position:relative;padding-bottom:3px;transition:color 0.2s;
+}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--gold);transition:width 0.3s;}
+.nav-links a:hover{color:var(--green);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  background:var(--green)!important;color:var(--white)!important;
+  padding:9px 22px;border-radius:1px;
+  font-size:0.75rem!important;font-weight:600!important;
+  letter-spacing:0.1em!important;transition:background 0.2s!important;
+}
+.nav-cta:hover{background:var(--green-light)!important;}
+.nav-cta::after{display:none!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--green-dark);transition:0.3s;}
+
+/* ══════════════════ HERO ══════════════════ */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  background:var(--green-xdark);
+  position:relative;overflow:hidden;padding-top:72px;
+}
+.hero-bg-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(0deg, rgba(196,154,40,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,154,40,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.hero-orb1{
+  position:absolute;top:-20%;right:-10%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(35,107,64,0.5),transparent 70%);
+  pointer-events:none;
+}
+.hero-orb2{
+  position:absolute;bottom:-30%;left:-10%;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(196,154,40,0.12),transparent 70%);
+  pointer-events:none;
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:1280px;margin:0 auto;padding:80px 6%;
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(196,154,40,0.35);
+  color:var(--gold-light);padding:7px 18px;border-radius:1px;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  margin-bottom:32px;animation:fadeUp 0.7s ease both;
+}
+.hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,5.5vw,5rem);
+  font-weight:900;line-height:1.05;color:var(--white);
+  margin-bottom:10px;animation:fadeUp 0.7s 0.1s ease both;
+}
+.hero-title .gold{color:var(--gold-light);font-style:italic;}
+.hero-tagline{
+  font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);margin-bottom:28px;
+  font-weight:400;animation:fadeUp 0.7s 0.15s ease both;
+}
+.hero-desc{
+  font-size:1.05rem;line-height:1.85;
+  color:rgba(255,255,255,0.68);max-width:520px;
+  margin-bottom:44px;animation:fadeUp 0.7s 0.2s ease both;
+}
+.hero-btns{display:flex;gap:14px;animation:fadeUp 0.7s 0.28s ease both;}
+.btn-gold{
+  background:var(--gold);color:var(--green-xdark);
+  padding:15px 32px;font-weight:700;font-size:0.82rem;
+  letter-spacing:0.08em;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:1px;
+  text-decoration:none;display:inline-block;
+  transition:background 0.2s,transform 0.2s;
+}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-ghost{
+  border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);
+  padding:15px 32px;font-weight:500;font-size:0.82rem;
+  letter-spacing:0.08em;text-transform:uppercase;
+  background:transparent;cursor:pointer;border-radius:1px;
+  text-decoration:none;display:inline-block;
+  transition:border-color 0.2s,background 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.06);}
+
+/* hero right panel */
+.hero-panel{animation:fadeUp 0.8s 0.3s ease both;}
+.hero-panel-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:2px;padding:36px;margin-bottom:16px;
+}
+.hero-panel-title{
+  font-family:'Playfair Display',serif;
+  font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;
+  padding-bottom:16px;border-bottom:1px solid rgba(196,154,40,0.2);
+}
+.go-row{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.go-row:last-child{border-bottom:none;padding-bottom:0;}
+.go-letter{
+  font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;
+  line-height:1;color:var(--gold);flex-shrink:0;width:44px;
+  font-style:italic;
+}
+.go-row-text h4{color:var(--white);font-weight:600;font-size:0.95rem;margin-bottom:4px;}
+.go-row-text p{color:rgba(255,255,255,0.55);font-size:0.82rem;line-height:1.6;}
+.hero-stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(255,255,255,0.07);border-radius:1px;overflow:hidden;
+}
+.hstat{padding:20px 14px;background:rgba(255,255,255,0.03);text-align:center;}
+.hstat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);}
+.hstat-label{font-size:0.65rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:3px;}
+
+/* ══════════════════ SECTION COMMONS ══════════════════ */
+.sec{padding:100px 6%;max-width:1280px;margin:0 auto;}
+.sec-tag{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--green-dark);line-height:1.15;margin-bottom:16px;}
+.sec-desc{font-size:0.97rem;color:var(--gray);line-height:1.85;max-width:580px;}
+.gold-rule{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),var(--green));margin:18px 0 40px;}
+
+/* ══════════════════ TENTANG ══════════════════ */
+#tentang{background:var(--white);max-width:100%;padding:100px 6%;}
+.tentang-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.tentang-left .big-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1.4rem,2.5vw,1.9rem);line-height:1.55;
+  color:var(--green-dark);margin-bottom:28px;
+  border-left:3px solid var(--gold);padding-left:24px;
+}
+.tentang-right{padding-top:12px;}
+.tentang-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold-pale);border:1px solid rgba(196,154,40,0.25);
+  color:var(--green-dark);padding:8px 18px;border-radius:1px;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:32px;
+}
+.tentang-stat-row{display:flex;gap:32px;margin-top:36px;}
+.t-stat{text-align:left;}
+.t-stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;}
+.t-stat-label{font-size:0.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;}
+
+/* ══════════════════ VISI MISI ══════════════════ */
+#visimisi{background:var(--cream);max-width:100%;padding:100px 6%;}
+.vm-inner{max-width:1280px;margin:0 auto;}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:56px;border:1px solid var(--border);overflow:hidden;border-radius:2px;}
+.vm-card{padding:52px 48px;position:relative;}
+.vm-card.visi{background:var(--green-dark);}
+.vm-card.misi{background:var(--white);}
+.vm-card-label{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.visi .vm-card-label{color:var(--gold);}
+.misi .vm-card-label{color:var(--green);}
+.vm-card-label::before{content:'';display:block;width:20px;height:1px;}
+.visi .vm-card-label::before{background:var(--gold);}
+.misi .vm-card-label::before{background:var(--green);}
+.vm-card h3{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;margin-bottom:20px;}
+.visi h3{color:var(--white);}
+.misi h3{color:var(--green-dark);}
+.visi p{color:rgba(255,255,255,0.72);font-size:0.95rem;line-height:1.8;}
+.misi-list{list-style:none;display:flex;flex-direction:column;gap:16px;}
+.misi-list li{display:flex;gap:14px;align-items:flex-start;}
+.misi-num{flex-shrink:0;width:26px;height:26px;background:var(--green);color:var(--white);border-radius:50%;font-size:0.68rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.misi-list li span{font-size:0.9rem;color:var(--gray);line-height:1.7;}
+
+/* ══════════════════ PERUNTUKAN LAHAN ══════════════════ */
+#peruntukan{background:var(--green-xdark);max-width:100%;padding:100px 6%;}
+.per-inner{max-width:1280px;margin:0 auto;}
+.per-inner .sec-title{color:var(--white);}
+.per-inner .sec-desc{color:rgba(255,255,255,0.6);max-width:620px;}
+.per-inner .gold-rule{background:linear-gradient(90deg,var(--gold),rgba(255,255,255,0.15));}
+
+.per-tabs{display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:48px;overflow-x:auto;}
+.per-tab{
+  padding:14px 28px;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);background:transparent;border:none;cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;
+  transition:color 0.2s,border-color 0.2s;
+}
+.per-tab:hover{color:rgba(255,255,255,0.7);}
+.per-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+.per-content{display:none;}
+.per-content.active{display:grid;grid-template-columns:1.2fr 0.8fr;gap:56px;align-items:start;}
+
+.per-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.per-feat{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:1px;padding:22px 20px;
+  transition:background 0.25s,border-color 0.25s;cursor:default;
+}
+.per-feat:hover{background:rgba(255,255,255,0.07);border-color:rgba(196,154,40,0.3);}
+.per-feat-icon{font-size:1.5rem;margin-bottom:10px;}
+.per-feat h4{font-size:0.88rem;font-weight:600;color:var(--white);margin-bottom:5px;}
+.per-feat p{font-size:0.78rem;color:rgba(255,255,255,0.52);line-height:1.6;}
+
+.per-sidebar{padding-top:8px;}
+.per-highlight{
+  background:var(--gold);padding:32px 28px;border-radius:1px;margin-bottom:16px;
+}
+.per-highlight h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--green-xdark);margin-bottom:8px;}
+.per-highlight p{font-size:0.85rem;color:rgba(13,58,30,0.8);line-height:1.65;}
+.per-ideal{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:1px;padding:24px;
+}
+.per-ideal h4{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:700;}
+.per-ideal-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.per-ideal-list li{display:flex;gap:10px;align-items:center;font-size:0.85rem;color:rgba(255,255,255,0.65);}
+.per-ideal-list li::before{content:'→';color:var(--gold);flex-shrink:0;}
+.per-cta-btn{
+  width:100%;margin-top:16px;padding:14px;
+  background:transparent;border:1px solid rgba(196,154,40,0.5);
+  color:var(--gold);border-radius:1px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  transition:background 0.2s,border-color 0.2s;
+}
+.per-cta-btn:hover{background:rgba(196,154,40,0.1);border-color:var(--gold);}
+
+/* ══════════════════ LAYANAN ══════════════════ */
+#layanan{background:var(--white);max-width:100%;padding:100px 6%;}
+.lay-inner{max-width:1280px;margin:0 auto;}
+.lay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:2px;overflow:hidden;margin-top:12px;}
+.lay-card{
+  background:var(--white);padding:40px 28px;
+  position:relative;overflow:hidden;
+  transition:background 0.3s;cursor:default;
+}
+.lay-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--green),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
+}
+.lay-card:hover{background:var(--cream);}
+.lay-card:hover::after{transform:scaleX(1);}
+.lay-icon{
+  width:52px;height:52px;background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:20px;border-radius:1px;
+}
+.lay-card h3{font-size:1rem;font-weight:700;color:var(--green-dark);margin-bottom:10px;}
+.lay-card p{font-size:0.82rem;color:var(--gray);line-height:1.75;}
+
+/* ══════════════════ AREA LAHAN ══════════════════ */
+#arealahan{background:var(--cream);max-width:100%;padding:100px 6%;}
+.area-inner{max-width:1280px;margin:0 auto;}
+.area-layout{display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:start;}
+
+.area-scroll-list{display:flex;flex-direction:column;gap:8px;}
+.area-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;background:var(--white);
+  border:1px solid rgba(0,0,0,0.07);border-radius:1px;
+  cursor:pointer;transition:all 0.25s;
+  border-left:3px solid transparent;
+}
+.area-item:hover{border-left-color:var(--green);background:var(--gold-xpale);}
+.area-item.active{border-left-color:var(--gold);background:var(--gold-pale);border-color:rgba(196,154,40,0.3);}
+.area-item-left{display:flex;align-items:center;gap:14px;}
+.area-abbr{
+  width:36px;height:36px;border-radius:50%;background:var(--green);
+  color:var(--white);font-size:0.65rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;letter-spacing:0.05em;flex-shrink:0;
+  transition:background 0.2s;
+}
+.area-item.active .area-abbr{background:var(--gold);color:var(--green-xdark);}
+.area-item-name{font-weight:600;font-size:0.9rem;color:var(--green-dark);}
+.area-item-prov{font-size:0.72rem;color:var(--gray);}
+.area-arrow{font-size:0.8rem;color:var(--gray);transition:transform 0.2s,color 0.2s;}
+.area-item.active .area-arrow{transform:translateX(4px);color:var(--gold);}
+
+.area-detail{
+  background:var(--white);border:1px solid rgba(0,0,0,0.07);
+  border-radius:2px;overflow:hidden;position:sticky;top:90px;
+}
+.area-det-header{
+  background:linear-gradient(135deg,var(--green-dark),var(--green-mid));
+  padding:36px 36px 28px;color:var(--white);position:relative;overflow:hidden;
+}
+.area-det-header::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:180px;height:180px;border-radius:50%;
+  background:rgba(196,154,40,0.12);pointer-events:none;
+}
+.area-det-tag{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;font-weight:600;}
+.area-det-name{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1.1;margin-bottom:6px;}
+.area-det-prov{font-size:0.78rem;color:rgba(255,255,255,0.5);}
+.area-det-body{padding:28px 36px 36px;}
+.area-det-desc{font-size:0.9rem;color:var(--gray);line-height:1.8;margin-bottom:24px;}
+.area-det-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+.a-tag{
+  background:var(--gold-pale);color:var(--green-dark);
+  border:1px solid rgba(196,154,40,0.3);
+  font-size:0.72rem;font-weight:600;padding:5px 14px;border-radius:1px;
+}
+.area-det-cta{
+  width:100%;padding:14px;background:var(--gold);
+  color:var(--green-xdark);border:none;border-radius:1px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  transition:background 0.2s;
+}
+.area-det-cta:hover{background:var(--gold-light);}
+.area-badges{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px;}
+.a-badge{
+  background:var(--white);border:1px solid rgba(0,0,0,0.07);
+  border-radius:1px;padding:16px;text-align:center;
+}
+.a-badge-icon{font-size:1.3rem;margin-bottom:6px;}
+.a-badge strong{display:block;font-size:0.82rem;color:var(--green-dark);}
+.a-badge small{font-size:0.68rem;color:var(--gray);}
+
+/* ══════════════════ KEUNGGULAN ══════════════════ */
+#keunggulan{background:var(--white);max-width:100%;padding:100px 6%;}
+.keung-inner{max-width:1280px;margin:0 auto;}
+.keung-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:12px;}
+.keung-card{
+  padding:36px 26px;border:1px solid var(--border);border-radius:1px;
+  background:var(--cream);text-align:center;transition:transform 0.3s,box-shadow 0.3s;
+}
+.keung-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(27,94,53,0.1);}
+.keung-circle{
+  width:70px;height:70px;border-radius:50%;margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+}
+.keung-card:nth-child(1) .keung-circle{background:rgba(27,94,53,0.1);}
+.keung-card:nth-child(2) .keung-circle{background:rgba(196,154,40,0.1);}
+.keung-card:nth-child(3) .keung-circle{background:rgba(27,94,53,0.1);}
+.keung-card:nth-child(4) .keung-circle{background:rgba(196,154,40,0.1);}
+.keung-card h3{font-size:1rem;font-weight:700;color:var(--green-dark);margin-bottom:10px;}
+.keung-card p{font-size:0.82rem;color:var(--gray);line-height:1.7;}
+
+/* ══════════════════ ORGANISASI ══════════════════ */
+#organisasi{background:var(--cream);max-width:100%;padding:100px 6%;}
+.org-inner{max-width:1280px;margin:0 auto;}
+.org-chart{margin-top:52px;display:flex;flex-direction:column;align-items:center;}
+.org-dir-wrap{margin-bottom:0;position:relative;}
+.org-dir-wrap::after{content:'';position:absolute;bottom:-36px;left:50%;transform:translateX(-50%);width:1px;height:36px;background:var(--gold);}
+.org-dir{
+  background:var(--green-dark);color:var(--white);
+  padding:28px 60px;border-radius:1px;text-align:center;
+  box-shadow:0 12px 40px rgba(13,58,30,0.25);
+}
+.org-dir-role{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;}
+.org-dir-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;}
+.org-line{width:80%;height:1px;background:var(--gold);margin-top:36px;position:relative;}
+.org-staff-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  width:100%;margin-top:0;padding-top:36px;position:relative;
+}
+.org-staff-row::before{content:'';position:absolute;top:0;left:12.5%;right:12.5%;height:1px;background:var(--gold);}
+.org-staff{
+  background:var(--white);border:1px solid rgba(196,154,40,0.2);
+  border-radius:1px;padding:24px 16px;text-align:center;
+  position:relative;transition:box-shadow 0.3s,border-color 0.3s;
+}
+.org-staff::before{content:'';position:absolute;top:-36px;left:50%;transform:translateX(-50%);width:1px;height:36px;background:var(--gold);}
+.org-staff:hover{box-shadow:0 8px 28px rgba(27,94,53,0.1);border-color:rgba(196,154,40,0.5);}
+.org-avatar{
+  width:46px;height:46px;background:var(--green);border-radius:50%;
+  margin:0 auto 12px;display:flex;align-items:center;justify-content:center;
+  color:var(--white);font-size:1rem;font-weight:700;
+  font-family:'Playfair Display',serif;
+}
+.org-pos{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;}
+.org-name{font-weight:600;font-size:0.83rem;color:var(--green-dark);line-height:1.45;}
+
+/* ══════════════════ FILOSOFI ══════════════════ */
+#filosofi{background:var(--green-dark);max-width:100%;padding:100px 6%;}
+.fil-inner{max-width:1280px;margin:0 auto;}
+.fil-inner .sec-title{color:var(--white);}
+.fil-inner .sec-desc{color:rgba(255,255,255,0.6);}
+.fil-inner .gold-rule{background:linear-gradient(90deg,var(--gold),rgba(255,255,255,0.15));}
+.fil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;margin-top:16px;}
+.fil-card{
+  background:var(--green-dark);padding:36px 30px;
+  transition:background 0.3s;
+}
+.fil-card:hover{background:rgba(255,255,255,0.04);}
+.fil-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--gold);opacity:0.2;line-height:1;margin-bottom:4px;font-style:italic;}
+.fil-card h3{font-size:0.95rem;font-weight:700;color:var(--gold-light);margin-bottom:10px;}
+.fil-card p{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.75;}
+
+/* ══════════════════ KONTAK ══════════════════ */
+#kontak{background:var(--cream);max-width:100%;padding:100px 6%;}
+.kontak-inner{max-width:1280px;margin:0 auto;}
+.kontak-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.kontak-info{display:flex;flex-direction:column;gap:16px;margin-top:8px;}
+.kontak-card{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:22px 24px;background:var(--white);
+  border:1px solid var(--border);border-radius:1px;
+  transition:box-shadow 0.2s,border-color 0.2s;
+}
+.kontak-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.07);border-color:rgba(196,154,40,0.3);}
+.kontak-icon{
+  width:44px;height:44px;background:var(--green);border-radius:1px;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.kontak-card h4{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);font-weight:700;margin-bottom:5px;}
+.kontak-card p{font-size:0.9rem;color:var(--text);line-height:1.6;}
+.kontak-card a{color:var(--green);text-decoration:none;font-weight:600;}
+.kontak-form{background:var(--white);border-radius:1px;padding:44px;border:1px solid var(--border);}
+.kontak-form h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--green-dark);margin-bottom:28px;}
+.fg{margin-bottom:18px;}
+.fg label{display:block;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:7px;}
+.fg input,.fg textarea,.fg select{
+  width:100%;padding:12px 16px;border:1.5px solid rgba(0,0,0,0.1);
+  border-radius:1px;font-family:'DM Sans',sans-serif;font-size:0.88rem;
+  background:var(--cream);color:var(--text);outline:none;
+  transition:border-color 0.2s;appearance:none;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--green);}
+.fg textarea{resize:vertical;min-height:96px;}
+.form-send{
+  width:100%;padding:14px;background:var(--green);color:var(--white);
+  border:none;border-radius:1px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s;
+}
+.form-send:hover{background:var(--green-light);}
+
+/* ══════════════════ FOOTER ══════════════════ */
+footer{background:var(--green-xdark);color:rgba(255,255,255,0.6);padding:64px 6% 32px;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:56px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.footer-brand h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);font-weight:700;margin-bottom:2px;}
+.footer-brand h3 span{color:var(--gold);font-style:italic;}
+.footer-sub{font-size:0.7rem;color:var(--gold-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;}
+.footer-brand p{font-size:0.82rem;line-height:1.75;}
+.footer-col h4{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold-light);font-weight:700;margin-bottom:18px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{text-decoration:none;color:rgba(255,255,255,0.5);font-size:0.82rem;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold-light);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:0.75rem;}
+.footer-tagline{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold-light);font-size:0.9rem;}
+
+/* ══════════════════ UTILS ══════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s,transform 0.65s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+
+.toast{position:fixed;bottom:28px;right:28px;z-index:9999;background:var(--green);color:var(--white);padding:14px 24px;border-radius:1px;font-size:0.88rem;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,0.2);transform:translateY(100px);opacity:0;transition:transform 0.3s,opacity 0.3s;}
+.toast.show{transform:translateY(0);opacity:1;}
+.scroll-top{position:fixed;bottom:28px;right:28px;z-index:998;width:44px;height:44px;background:var(--green);color:var(--white);border:none;border-radius:1px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.scroll-top.show{opacity:1;pointer-events:auto;}
+
+/* ══════════════════ MOBILE ══════════════════ */
+@media(max-width:900px){
+  .hero-content,.tentang-inner,.vm-grid,.per-content,.kontak-grid,.footer-top{grid-template-columns:1fr;}
+  .per-content.active{display:flex;flex-direction:column;}
+  .lay-grid,.keung-grid{grid-template-columns:1fr 1fr;}
+  .org-staff-row{grid-template-columns:repeat(2,1fr);}
+  .org-staff-row::before{left:25%;right:25%;}
+  .area-layout{grid-template-columns:1fr;}
+  .area-detail{position:static;}
+  .fil-grid{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--white);flex-direction:column;align-items:center;justify-content:center;gap:28px;z-index:998;}
+  .nav-links.open{display:flex;}
+  .hamburger{display:flex;}
+}
+@media(max-width:600px){
+  .lay-grid,.keung-grid,.fil-grid,.hero-stats-row,.area-badges{grid-template-columns:1fr;}
+  .tentang-stat-row{flex-direction:column;gap:20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <img src="logointer.png" alt="Logo Perusahaan" class="logo-img">
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Beranda</a></li>
+    <li><a href="#visimisi">Visi & Misi</a></li>
+    <li><a href="#peruntukan">Peruntukan Lahan</a></li>
+    <li><a href="#arealahan">Area Lahan</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#organisasi">Organisasi</a></li>
+    <li><a href="#kontak" class="nav-cta">Hubungi Kami</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Agen Properti & Penawaran Lahan
+      </div>
+      <h1 class="hero-title">PT. <span class="gold">GO</span><br>INTERNASIONAL</h1>
+      <p class="hero-tagline">Agen Properti & Penawaran Lahan</p>
+      <p class="hero-desc">Mitra terpercaya Anda dalam investasi properti dan lahan bernilai tinggi. Kami hadir dengan integritas, profesionalisme, dan komitmen untuk masa depan berkelanjutan.</p>
+      <div class="hero-btns">
+        <a href="#arealahan" class="btn-gold">Lihat Area Lahan</a>
+        <a href="#kontak" class="btn-ghost">Konsultasi Gratis</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-panel-card">
+        <div class="hero-panel-title">Filosofi Nama "GO"</div>
+        <div class="go-row">
+          <div class="go-letter">G</div>
+          <div class="go-row-text">
+            <h4>Growth – Pertumbuhan</h4>
+            <p>Komitmen untuk terus tumbuh dan memberikan nilai lebih bagi setiap klien dan mitra kami.</p>
+          </div>
+        </div>
+        <div class="go-row">
+          <div class="go-letter">O</div>
+          <div class="go-row-text">
+            <h4>Opportunity – Peluang</h4>
+            <p>Membuka peluang investasi lahan yang luas, terbuka, dan berkelanjutan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hstat"><div class="hstat-num">11+</div><div class="hstat-label">Wilayah</div></div>
+        <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-label">Legal</div></div>
+        <div class="hstat"><div class="hstat-num">Pro</div><div class="hstat-label">Tim Ahli</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TENTANG ══ -->
+<div id="tentang">
+  <div class="tentang-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="tentang-left reveal">
+      <div class="sec-tag">Tentang Kami</div>
+      <div class="big-quote">"Menjadi mitra terbaik Anda dalam investasi properti dan lahan yang bernilai tinggi, aman, serta memberikan pertumbuhan jangka panjang."</div>
+      <div class="gold-rule"></div>
+      <p style="font-size:0.93rem;color:var(--gray);line-height:1.85;">PT. GO INTERNASIONAL adalah agen properti dan penawaran lahan yang <strong>terpercaya, profesional, dan berkelanjutan</strong>. Hadir untuk membantu Anda menemukan peluang investasi terbaik di berbagai wilayah Jawa Tengah dan DIY.</p>
+      <div class="tentang-stat-row">
+        <div class="t-stat"><div class="t-stat-num">11+</div><div class="t-stat-label">Area Jangkauan</div></div>
+        <div class="t-stat"><div class="t-stat-num">4</div><div class="t-stat-label">Layanan Utama</div></div>
+        <div class="t-stat"><div class="t-stat-num">∞</div><div class="t-stat-label">Peluang Investasi</div></div>
+      </div>
+    </div>
+    <div class="tentang-right reveal reveal-delay-2">
+      <div class="tentang-pill">🏢 Agen Properti Terpercaya</div>
+      <h2 class="sec-title">Siapa Kami?</h2>
+      <div class="gold-rule"></div>
+      <p style="font-size:0.93rem;color:var(--gray);line-height:1.85;margin-bottom:20px;">Dengan tim profesional berpengalaman, kami menghadirkan solusi investasi properti dan lahan mulai dari residensial, komersial, industri garment & tekstil, hingga kawasan peternakan dan agribisnis.</p>
+      <p style="font-size:0.93rem;color:var(--gray);line-height:1.85;">Setiap transaksi kami pastikan aman secara hukum, transparan dalam proses, dan memberikan nilai optimal bagi klien dan mitra bisnis kami.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VISI MISI ══ -->
+<div id="visimisi">
+  <div class="vm-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="sec-tag">Arah & Tujuan</div>
+    <h2 class="sec-title">Visi & Misi</h2>
+    <div class="gold-rule"></div>
+    <div class="vm-grid reveal">
+      <div class="vm-card visi">
+        <div class="vm-card-label">Visi Perusahaan</div>
+        <h3>Visi</h3>
+        <p>Menjadi agen properti dan lahan terdepan di Indonesia yang menghadirkan solusi investasi bernilai tinggi dengan <strong>integritas, profesionalisme, dan kepedulian</strong> terhadap keberlanjutan lingkungan.</p>
+      </div>
+      <div class="vm-card misi">
+        <div class="vm-card-label">Misi Perusahaan</div>
+        <h3>Misi</h3>
+        <ul class="misi-list">
+          <li><div class="misi-num">1</div><span>Memberikan layanan transaksi properti & lahan yang aman, transparan, dan terpercaya.</span></li>
+          <li><div class="misi-num">2</div><span>Menyediakan peluang investasi terbaik melalui riset pasar dan jaringan yang luas.</span></li>
+          <li><div class="misi-num">3</div><span>Tumbuh bersama klien dan mitra dengan prinsip saling menguntungkan.</span></li>
+          <li><div class="misi-num">4</div><span>Menjunjung tinggi nilai keberlanjutan dalam setiap penawaran lahan dan properti.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PERUNTUKAN LAHAN ══ -->
+<div id="peruntukan">
+  <div class="per-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="sec-tag" style="color:var(--gold-light);">Peruntukan & Penggunaan</div>
+    <h2 class="sec-title">Lahan untuk Berbagai Kebutuhan</h2>
+    <div class="gold-rule"></div>
+    <p class="sec-desc" style="color:rgba(255,255,255,0.6);margin-bottom:48px;">Kami menyediakan lahan strategis yang dapat diperuntukkan berbagai sektor industri dan usaha. Setiap lahan dipilih secara cermat untuk memastikan kesesuaian regulasi, infrastruktur, dan potensi investasi.</p>
+
+    <div class="per-tabs">
+      <button class="per-tab active" onclick="switchTab(this,'garment')">👕 Industri Garment</button>
+      <button class="per-tab" onclick="switchTab(this,'textile')">🧵 Industri Tekstil</button>
+      <button class="per-tab" onclick="switchTab(this,'ternak')">🐓 Kandang Ternak</button>
+      <button class="per-tab" onclick="switchTab(this,'komersial')">🏢 Komersial</button>
+      <button class="per-tab" onclick="switchTab(this,'residensial')">🏡 Residensial</button>
+    </div>
+
+    <!-- TAB: GARMENT -->
+    <div class="per-content active" id="tab-garment">
+      <div class="per-features">
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">🏭</div>
+          <h4>Luas Lahan Fleksibel</h4>
+          <p>Tersedia mulai 1.000 m² hingga puluhan hektar untuk kebutuhan pabrik skala kecil hingga besar.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">⚡</div>
+          <h4>Akses Daya Listrik</h4>
+          <p>Lokasi didukung jaringan listrik PLN industri bertegangan tinggi untuk operasional mesin produksi.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-2">
+          <div class="per-feat-icon">🚛</div>
+          <h4>Akses Logistik</h4>
+          <p>Dekat jalur tol dan jalan nasional untuk distribusi bahan baku dan produk jadi secara efisien.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-3">
+          <div class="per-feat-icon">👷</div>
+          <h4>Ketersediaan Tenaga Kerja</h4>
+          <p>Berlokasi di area dengan populasi padat dan tenaga kerja terampil di bidang konveksi & garment.</p>
+        </div>
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">💧</div>
+          <h4>Sumber Air Memadai</h4>
+          <p>Tersedia akses PDAM atau sumber air tanah dengan debit mencukupi kebutuhan produksi.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">📋</div>
+          <h4>Legalitas Terjamin</h4>
+          <p>Sertifikat HM/HGB dengan peruntukan industri sesuai RTRW daerah setempat.</p>
+        </div>
+      </div>
+      <div class="per-sidebar">
+        <div class="per-highlight">
+          <h3>Industri Garment</h3>
+          <p>Lahan ideal untuk pendirian pabrik konveksi, garment, dan fashion manufacturing. Didukung infrastruktur lengkap dan akses tenaga kerja terampil di Jawa Tengah.</p>
+        </div>
+        <div class="per-ideal">
+          <h4>Cocok Untuk</h4>
+          <ul class="per-ideal-list">
+            <li>Pabrik konveksi & garment</li>
+            <li>Gudang distribusi pakaian</li>
+            <li>Fashion manufacturing</li>
+            <li>Industri aksesoris pakaian</li>
+            <li>Laundry & dry cleaning skala besar</li>
+          </ul>
+        </div>
+        <button class="per-cta-btn" onclick="tanyaPeruntukan('Industri Garment')">Konsultasi Lahan Garment →</button>
+      </div>
+    </div>
+
+    <!-- TAB: TEXTILE -->
+    <div class="per-content" id="tab-textile">
+      <div class="per-features">
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">🧵</div>
+          <h4>Lahan Luas & Datar</h4>
+          <p>Kontur tanah datar ideal untuk pembangunan pabrik tekstil dengan layout produksi yang efisien.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">🌊</div>
+          <h4>Akses Sumber Air</h4>
+          <p>Industri tekstil membutuhkan air dalam jumlah besar — lokasi kami dekat sungai dan jaringan PDAM.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-2">
+          <div class="per-feat-icon">🏗️</div>
+          <h4>Infrastruktur Industri</h4>
+          <p>Kawasan dengan infrastruktur jalan industri yang kuat untuk mobilitas alat berat dan kontainer.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-3">
+          <div class="per-feat-icon">♻️</div>
+          <h4>Fasilitas Pengolahan Limbah</h4>
+          <p>Area dengan kemungkinan pembangunan IPAL (Instalasi Pengolahan Air Limbah) sesuai regulasi.</p>
+        </div>
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">📦</div>
+          <h4>Area Gudang & Bongkar Muat</h4>
+          <p>Lahan tersedia dengan akses loading dock dan area parkir truk untuk logistik bahan baku.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">🌐</div>
+          <h4>Lokasi Strategis Ekspor</h4>
+          <p>Dekat jalur distribusi menuju Pelabuhan Tanjung Emas Semarang untuk kebutuhan ekspor tekstil.</p>
+        </div>
+      </div>
+      <div class="per-sidebar">
+        <div class="per-highlight">
+          <h3>Industri Tekstil</h3>
+          <p>Lahan strategis untuk industri tekstil, spinning, weaving, dan dyeing. Jawa Tengah adalah pusat industri tekstil Indonesia dengan ekosistem rantai pasok yang lengkap.</p>
+        </div>
+        <div class="per-ideal">
+          <h4>Cocok Untuk</h4>
+          <ul class="per-ideal-list">
+            <li>Pabrik pemintalan benang (spinning)</li>
+            <li>Industri tenun & kain (weaving)</li>
+            <li>Pabrik pewarnaan & finishing</li>
+            <li>Industri batik skala industri</li>
+            <li>Gudang komoditas tekstil</li>
+          </ul>
+        </div>
+        <button class="per-cta-btn" onclick="tanyaPeruntukan('Industri Tekstil')">Konsultasi Lahan Tekstil →</button>
+      </div>
+    </div>
+
+    <!-- TAB: TERNAK -->
+    <div class="per-content" id="tab-ternak">
+      <div class="per-features">
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">🐓</div>
+          <h4>Lahan Luas & Hijau</h4>
+          <p>Area lahan yang luas dengan vegetasi alami ideal untuk kandang ayam, sapi, kambing, domba, dan unggas.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">🌿</div>
+          <h4>Sumber Pakan Ternak</h4>
+          <p>Berlokasi di wilayah agraris dengan ketersediaan hijauan pakan ternak dan bahan pakan lokal.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-2">
+          <div class="per-feat-icon">💧</div>
+          <h4>Sumber Air Bersih</h4>
+          <p>Dekat sumber mata air atau sumur bor dengan debit memadai untuk kebutuhan minum ternak.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-3">
+          <div class="per-feat-icon">🏞️</div>
+          <h4>Jarak Aman dari Pemukiman</h4>
+          <p>Lokasi yang sesuai regulasi, jauh dari kepadatan pemukiman untuk menjaga kesehatan lingkungan.</p>
+        </div>
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">🌾</div>
+          <h4>Lahan Pertanian Pendukung</h4>
+          <p>Tersedia lahan tambahan untuk budidaya hijauan pakan dan pertanian pendukung agribisnis.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">🚗</div>
+          <h4>Akses Jalan yang Baik</h4>
+          <p>Jalur distribusi ternak dan produk peternakan (susu, daging) ke pasar lokal maupun industri.</p>
+        </div>
+      </div>
+      <div class="per-sidebar">
+        <div class="per-highlight">
+          <h3>Kandang Ternak</h3>
+          <p>Lahan ideal untuk peternakan sapi perah, sapi potong, kambing, domba, ayam, dan bebek. Jawa Tengah memiliki ekosistem pertanian-peternakan yang sangat mendukung.</p>
+        </div>
+        <div class="per-ideal">
+          <h4>Cocok Untuk</h4>
+          <ul class="per-ideal-list">
+            <li>Peternakan sapi perah & potong</li>
+            <li>Kandang kambing & domba</li>
+            <li>Peternakan unggas (ayam, bebek)</li>
+            <li>Kolam budidaya ikan & udang</li>
+            <li>Agrowisata peternakan</li>
+          </ul>
+        </div>
+        <button class="per-cta-btn" onclick="tanyaPeruntukan('Kandang Ternak')">Konsultasi Lahan Ternak →</button>
+      </div>
+    </div>
+
+    <!-- TAB: KOMERSIAL -->
+    <div class="per-content" id="tab-komersial">
+      <div class="per-features">
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">🏬</div>
+          <h4>Lokasi Strategis</h4>
+          <p>Lahan di pinggir jalan utama atau jalan nasional dengan visibilitas tinggi dan traffic padat.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">🅿️</div>
+          <h4>Area Parkir Luas</h4>
+          <p>Lahan dengan dimensi memadai untuk pembangunan gedung komersial beserta area parkir yang nyaman.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-2">
+          <div class="per-feat-icon">🏙️</div>
+          <h4>Kawasan Berkembang</h4>
+          <p>Berada di kawasan yang sedang berkembang pesat dengan potensi kenaikan nilai properti signifikan.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-3">
+          <div class="per-feat-icon">📶</div>
+          <h4>Infrastruktur Lengkap</h4>
+          <p>Tersedia jaringan listrik, air, drainase, dan konektivitas internet fiber untuk kebutuhan bisnis.</p>
+        </div>
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">🏦</div>
+          <h4>IMB & Sertifikat HGB</h4>
+          <p>Lahan dengan peruntukan komersial sesuai RTRW, siap proses IMB untuk berbagai jenis bangunan.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">📈</div>
+          <h4>Nilai Investasi Tinggi</h4>
+          <p>Lokasi premium dengan proyeksi kenaikan nilai properti 10–25% per tahun berdasarkan tren pasar.</p>
+        </div>
+      </div>
+      <div class="per-sidebar">
+        <div class="per-highlight">
+          <h3>Lahan Komersial</h3>
+          <p>Lahan komersial strategis untuk ruko, pusat perbelanjaan, hotel, perkantoran, dan berbagai usaha berbasis properti komersial.</p>
+        </div>
+        <div class="per-ideal">
+          <h4>Cocok Untuk</h4>
+          <ul class="per-ideal-list">
+            <li>Ruko & rukan</li>
+            <li>Hotel & penginapan</li>
+            <li>Pusat perbelanjaan & minimarket</li>
+            <li>Gedung perkantoran</li>
+            <li>SPBU & bengkel otomotif</li>
+          </ul>
+        </div>
+        <button class="per-cta-btn" onclick="tanyaPeruntukan('Lahan Komersial')">Konsultasi Lahan Komersial →</button>
+      </div>
+    </div>
+
+    <!-- TAB: RESIDENSIAL -->
+    <div class="per-content" id="tab-residensial">
+      <div class="per-features">
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">🏡</div>
+          <h4>Lingkungan Nyaman</h4>
+          <p>Lahan di kawasan tenang, jauh dari kebisingan industri, cocok untuk hunian keluarga berkualitas.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">🏫</div>
+          <h4>Dekat Fasilitas Umum</h4>
+          <p>Berdekatan dengan sekolah, rumah sakit, pasar, dan pusat perbelanjaan untuk kemudahan hidup.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-2">
+          <div class="per-feat-icon">🌳</div>
+          <h4>RTH & Ruang Terbuka</h4>
+          <p>Lahan dengan potensi ruang terbuka hijau untuk taman, playground, dan area komunal perumahan.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-3">
+          <div class="per-feat-icon">🛣️</div>
+          <h4>Aksesibilitas Baik</h4>
+          <p>Terhubung dengan jalan utama, akses tol, dan transportasi umum untuk mobilitas penghuni.</p>
+        </div>
+        <div class="per-feat reveal">
+          <div class="per-feat-icon">🔒</div>
+          <h4>Keamanan Lingkungan</h4>
+          <p>Lingkungan aman dengan sistem keamanan terpadu dan komunitas perumahan yang terorganisir.</p>
+        </div>
+        <div class="per-feat reveal reveal-delay-1">
+          <div class="per-feat-icon">📜</div>
+          <h4>Sertifikat SHM</h4>
+          <p>Lahan dengan sertifikat Hak Milik (SHM) untuk kepastian kepemilikan dan keamanan investasi.</p>
+        </div>
+      </div>
+      <div class="per-sidebar">
+        <div class="per-highlight">
+          <h3>Lahan Residensial</h3>
+          <p>Lahan hunian strategis untuk pengembang perumahan, kavling siap bangun, dan hunian premium. Lokasi pilihan di kawasan berkembang Jawa Tengah.</p>
+        </div>
+        <div class="per-ideal">
+          <h4>Cocok Untuk</h4>
+          <ul class="per-ideal-list">
+            <li>Perumahan & kavling</li>
+            <li>Rumah tapak & cluster</li>
+            <li>Kost-kostan & kontrakan</li>
+            <li>Villa & homestay</li>
+            <li>Pesantren & pondok</li>
+          </ul>
+        </div>
+        <button class="per-cta-btn" onclick="tanyaPeruntukan('Lahan Residensial')">Konsultasi Lahan Residensial →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LAYANAN ══ -->
+<div id="layanan">
+  <div class="lay-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="sec-tag">Apa yang Kami Tawarkan</div>
+    <h2 class="sec-title">Layanan Utama</h2>
+    <div class="gold-rule"></div>
+    <div class="lay-grid reveal">
+      <div class="lay-card">
+        <div class="lay-icon">🏠</div>
+        <h3>Jual-Beli Properti</h3>
+        <p>Rumah, apartemen, ruko, dan gedung komersial dengan legalitas terjamin dan proses yang transparan.</p>
+      </div>
+      <div class="lay-card">
+        <div class="lay-icon">🌿</div>
+        <h3>Penawaran Lahan</h3>
+        <p>Lahan industri, komersial, perkebunan, peternakan, dan kawasan pengembangan dengan potensi tinggi.</p>
+      </div>
+           <div class="lay-card">
+        <div class="lay-icon">🔑</div>
+        <h3>Manajemen Aset</h3>
+        <p>Pendampingan pengelolaan aset properti secara profesional agar bernilai optimal dan terus berkembang.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ AREA LAHAN ══ -->
+<div id="arealahan">
+  <div class="area-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="sec-tag">Jangkauan Wilayah</div>
+    <h2 class="sec-title">Area Lahan Kami</h2>
+    <div class="gold-rule"></div>
+    <p class="sec-desc" style="margin-bottom:48px;">Kami melayani penawaran dan transaksi lahan di berbagai wilayah strategis Jawa Tengah & DIY. Klik area untuk melihat detail wilayah.</p>
+
+    <div class="area-layout reveal">
+      <div class="area-scroll-list" id="areaList">
+        <div class="area-item active" onclick="selectArea(this,'klaten')">
+          <div class="area-item-left">
+            <div class="area-abbr">KL</div>
+            <div><div class="area-item-name">Klaten</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'jogja')">
+          <div class="area-item-left">
+            <div class="area-abbr">YK</div>
+            <div><div class="area-item-name">Yogyakarta</div><div class="area-item-prov">DIY</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'solo')">
+          <div class="area-item-left">
+            <div class="area-abbr">SL</div>
+            <div><div class="area-item-name">Solo (Surakarta)</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'karanganyar')">
+          <div class="area-item-left">
+            <div class="area-abbr">KA</div>
+            <div><div class="area-item-name">Karanganyar</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'boyolali')">
+          <div class="area-item-left">
+            <div class="area-abbr">BY</div>
+            <div><div class="area-item-name">Boyolali</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'sragen')">
+          <div class="area-item-left">
+            <div class="area-abbr">SR</div>
+            <div><div class="area-item-name">Sragen</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'sukoharjo')">
+          <div class="area-item-left">
+            <div class="area-abbr">SK</div>
+            <div><div class="area-item-name">Sukoharjo</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'salatiga')">
+          <div class="area-item-left">
+            <div class="area-abbr">SA</div>
+            <div><div class="area-item-name">Salatiga</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'batang')">
+          <div class="area-item-left">
+            <div class="area-abbr">BT</div>
+            <div><div class="area-item-name">Batang</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'kudus')">
+          <div class="area-item-left">
+            <div class="area-abbr">KD</div>
+            <div><div class="area-item-name">Kudus</div><div class="area-item-prov">Jawa Tengah</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+        <div class="area-item" onclick="selectArea(this,'dll')">
+          <div class="area-item-left">
+            <div class="area-abbr" style="background:var(--gold);color:var(--green-xdark);">++</div>
+            <div><div class="area-item-name">& Wilayah Lainnya</div><div class="area-item-prov">Sesuai kebutuhan</div></div>
+          </div>
+          <div class="area-arrow">→</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="area-detail" id="areaDetail">
+          <div class="area-det-header">
+            <div class="area-det-tag">Area Pilihan</div>
+            <div class="area-det-name" id="detNama">Klaten</div>
+            <div class="area-det-prov" id="detProv">Jawa Tengah</div>
+          </div>
+          <div class="area-det-body">
+            <p class="area-det-desc" id="detDesc">Klaten merupakan wilayah strategis di antara Solo dan Yogyakarta. Potensi lahan residensial, komersial, dan industri sangat tinggi berkat aksesibilitas tol Solo–Yogya dan jalur kereta yang baik.</p>
+            <div class="area-det-tags" id="detTags">
+              <span class="a-tag">🏡 Residensial</span>
+              <span class="a-tag">🏭 Industri</span>
+              <span class="a-tag">🛒 Komersial</span>
+              <span class="a-tag">🚗 Akses Tol</span>
+            </div>
+            <button class="area-det-cta" id="detCTA" onclick="tanyaArea('Klaten')">Tanyakan Lahan di Klaten →</button>
+          </div>
+        </div>
+        <div class="area-badges">
+          <div class="a-badge"><div class="a-badge-icon">📍</div><strong>11+ Wilayah</strong><small>Area aktif</small></div>
+          <div class="a-badge"><div class="a-badge-icon">🔍</div><strong>Siap Survey</strong><small>Tim lapangan</small></div>
+          <div class="a-badge"><div class="a-badge-icon">⚡</div><strong>24 Jam</strong><small>Respon cepat</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KEUNGGULAN ══ -->
+<div id="keunggulan">
+  <div class="keung-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="sec-tag">Mengapa Kami</div>
+    <h2 class="sec-title">Keunggulan Kami</h2>
+    <div class="gold-rule"></div>
+    <div class="keung-grid">
+      <div class="keung-card reveal">
+        <div class="keung-circle">🛡️</div>
+        <h3>Terpercaya</h3>
+        <p>Integritas dan keamanan menjadi fondasi utama dalam setiap transaksi properti bersama kami.</p>
+      </div>
+      <div class="keung-card reveal reveal-delay-1">
+        <div class="keung-circle">🏆</div>
+        <h3>Profesional</h3>
+        <p>Tim berpengalaman dengan dedikasi tinggi di bidang properti dan investasi lahan.</p>
+      </div>
+      <div class="keung-card reveal reveal-delay-2">
+        <div class="keung-circle">📈</div>
+        <h3>Berkembang</h3>
+        <p>Visi tumbuh bersama klien dan mitra bisnis dengan strategi yang terencana dan terukur.</p>
+      </div>
+      <div class="keung-card reveal reveal-delay-3">
+        <div class="keung-circle">🌱</div>
+        <h3>Berkelanjutan</h3>
+        <p>Komitmen menjaga nilai lahan dan lingkungan untuk masa depan jangka panjang.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ORGANISASI ══ -->
+<div id="organisasi">
+  <div class="org-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="sec-tag">Tim Kami</div>
+    <h2 class="sec-title">Struktur Organisasi</h2>
+    <div class="gold-rule"></div>
+    <div class="org-chart reveal">
+      <div class="org-dir-wrap">
+        <div class="org-dir">
+          <div class="org-dir-role">Direktur</div>
+          <div class="org-dir-name">Subandono, S.H, M.H</div>
+        </div>
+      </div>
+      <div class="org-line"></div>
+      <div class="org-staff-row">
+        <div class="org-staff">
+          <div class="org-avatar">A</div>
+          <div class="org-pos">Bagian Administrasi</div>
+          <div class="org-name">Anya Shafa Putrika, S.Pd</div>
+        </div>
+        <div class="org-staff">
+          <div class="org-avatar">P</div>
+          <div class="org-pos">Bagian Keuangan</div>
+          <div class="org-name">Puspa Winarni, S.T</div>
+        </div>
+        <div class="org-staff">
+          <div class="org-avatar">B</div>
+          <div class="org-pos">Bagian Lapangan</div>
+          <div class="org-name">Budiyarto, S.Pg</div>
+        </div>
+        <div class="org-staff">
+          <div class="org-avatar">M</div>
+          <div class="org-pos">Bagian Umum</div>
+          <div class="org-name">Muh. Puji Setyo G.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FILOSOFI ══ -->
+<div id="filosofi">
+    <div class="fil-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="sec-tag" style="color:var(--gold-light);">Identitas Visual</div>
+    <h2 class="sec-title">Filosofi Logo</h2>
+    <div class="gold-rule"></div>
+    <p class="sec-desc" style="color:rgba(255,255,255,0.6);margin-bottom:48px;">Logo PT. GO INTERNASIONAL memadukan elemen gedung modern dan kontur lahan — mencerminkan identitas dan nilai inti perusahaan.</p>
+    <div class="fil-grid reveal">
+      <div class="fil-card"><div class="fil-num">01</div><h3>Huruf "G" – Growth</h3><p>Pertumbuhan dan komitmen perusahaan untuk terus berkembang memberikan nilai lebih bagi klien.</p></div>
+      <div class="fil-card"><div class="fil-num">02</div><h3>Huruf "O" – Opportunity</h3><p>Peluang investasi yang luas, terbuka, dan berkelanjutan dalam properti dan lahan.</p></div>
+      <div class="fil-card"><div class="fil-num">03</div><h3>Bentuk Bangunan</h3><p>Profesionalisme, kekuatan, dan kepercayaan dalam solusi properti bernilai tinggi.</p></div>
+      <div class="fil-card"><div class="fil-num">04</div><h3>Garis Lahan / Kontur</h3><p>Tanah sebagai aset utama dan komitmen menjaga keberlanjutan lingkungan.</p></div>
+      <div class="fil-card"><div class="fil-num">05</div><h3>Garis Dasar Melengkung</h3><p>Pondasi yang kuat, arah jelas, dan masa depan berkelanjutan bagi klien dan mitra.</p></div>
+      <div class="fil-card"><div class="fil-num">06</div><h3>Hijau & Emas</h3><p>Hijau = alam & kepercayaan. Emas = kemakmuran & nilai investasi premium.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KONTAK ══ -->
+<div id="kontak">
+  <div class="kontak-inner sec" style="padding-top:100px;padding-bottom:100px;">
+    <div class="sec-tag">Hubungi Kami</div>
+    <h2 class="sec-title">Mari Berkolaborasi</h2>
+    <div class="gold-rule"></div>
+    <div class="kontak-grid">
+      <div>
+        <p style="font-size:0.93rem;color:var(--gray);line-height:1.85;margin-bottom:28px;">Kami siap membantu Anda menemukan investasi properti dan lahan terbaik — dari industri garment, tekstil, kandang ternak, hingga komersial dan residensial. Hubungi kami untuk konsultasi gratis.</p>
+        <div class="kontak-info reveal">
+          <div class="kontak-card">
+            <div class="kontak-icon">📍</div>
+            <div>
+              <h4>Alamat Kantor</h4>
+              <p>Jl. Solo Purwodadi, Karang Asem RT. 01,<br>Kalijambe, Sragen, Jawa Tengah.</p>
+            </div>
+          </div>
+          <div class="kontak-card">
+            <div class="kontak-icon">📞</div>
+            <div>
+              <h4>Telepon / WhatsApp</h4>
+              <p><a href="https://wa.me/6282118061811">+62 821-1806-1811</a></p>
+            </div>
+          </div>
+          <div class="kontak-card">
+            <div class="kontak-icon">⏰</div>
+            <div>
+              <h4>Jam Operasional</h4>
+              <p>Senin – Sabtu: 08.00 – 17.00 WIB<br>Minggu & Hari Besar: Perjanjian</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kontak-form reveal reveal-delay-2">
+        <h3>Kirim Pesan</h3>
+        <div class="fg"><label>Nama Lengkap</label><input type="text" id="nama" placeholder="Nama Anda"></div>
+        <div class="fg"><label>Nomor WhatsApp</label><input type="text" id="wa" placeholder="08xx-xxxx-xxxx"></div>
+        <div class="fg">
+          <label>Keperluan</label>
+          <select id="keperluan">
+            <option value="">-- Pilih Layanan / Peruntukan --</option>
+            <optgroup label="Peruntukan Lahan">
+              <option>Lahan Industri Garment</option>
+              <option>Lahan Industri Tekstil</option>
+              <option>Lahan Kandang Ternak</option>
+              <option>Lahan Komersial</option>
+              <option>Lahan Residensial</option>
+            </optgroup>
+            <optgroup label="Layanan Properti">
+              <option>Jual-Beli Properti</option>
+              <option>Konsultasi Investasi</option>
+              <option>Manajemen Aset</option>
+            </optgroup>
+            <option>Informasi Umum</option>
+          </select>
+        </div>
+        <div class="fg"><label>Pesan</label><textarea id="pesan" placeholder="Ceritakan kebutuhan Anda..."></textarea></div>
+        <button class="form-send" onclick="sendWA()">💬 Kirim via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>PT. <span>GO</span> INTERNASIONAL</h3>
+        <div class="footer-sub">Agen Properti & Penawaran Lahan</div>
+        <p>Mitra terpercaya dalam investasi properti dan lahan — dari industri garment, tekstil, peternakan, hingga komersial dan residensial di Jawa Tengah & DIY.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#visimisi">Visi & Misi</a></li>
+          <li><a href="#peruntukan">Peruntukan Lahan</a></li>
+          <li><a href="#arealahan">Area Lahan</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#organisasi">Organisasi</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Peruntukan Lahan</h4>
+        <ul class="footer-links">
+          <li><a href="#peruntukan">👕 Industri Garment</a></li>
+          <li><a href="#peruntukan">🧵 Industri Tekstil</a></li>
+          <li><a href="#peruntukan">🐓 Kandang Ternak</a></li>
+          <li><a href="#peruntukan">🏢 Komersial</a></li>
+          <li><a href="#peruntukan">🏡 Residensial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 PT. GO INTERNASIONAL. Semua hak dilindungi.</p>
+      <p class="footer-tagline">"Growth & Opportunity for Sustainable Future"</p>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div class="toast" id="toast"></div>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('navbar');
+  const st=document.getElementById('scrollTop');
+  if(window.scrollY>60){nav.classList.add('scrolled');st.classList.add('show');}
+  else{nav.classList.remove('scrolled');st.classList.remove('show');}
+});
+
+// Mobile menu
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+
+// Reveal
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>observer.observe(r));
+
+// Tab peruntukan
+function switchTab(el, key){
+  document.querySelectorAll('.per-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.per-content').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-'+key).classList.add('active');
+}
+
+// Area Lahan Data
+const areaDB={
+  klaten:{nama:'Klaten',prov:'Jawa Tengah',desc:'Wilayah strategis di antara Solo dan Yogyakarta. Potensi lahan residensial, komersial, industri garment & tekstil sangat tinggi berkat aksesibilitas tol Solo–Yogya dan jalur kereta.',tags:['🏡 Residensial','🏭 Garment & Tekstil','🛒 Komersial','🚗 Akses Tol']},
+  jogja:{nama:'Yogyakarta',prov:'DIY',desc:'Kota pelajar dan wisata dengan nilai investasi properti yang terus meningkat. Lahan komersial, hotel, kos-kosan, kawasan wisata, dan industri kreatif tersedia di berbagai lokasi strategis.',tags:['🏨 Pariwisata','🎓 Pendidikan','🛒 Komersial','🌾 Agribisnis']},
+  solo:{nama:'Solo (Surakarta)',prov:'Jawa Tengah',desc:'Pusat bisnis Jawa Tengah dengan pertumbuhan properti pesat. Solo menawarkan lahan komersial, perumahan, industri tekstil & batik, serta kawasan industri yang sangat potensial.',tags:['🏢 Komersial','🧵 Industri Tekstil','🏡 Perumahan','📈 Investasi Tinggi']},
+  karanganyar:{nama:'Karanganyar',prov:'Jawa Tengah',desc:'Dikelilingi pegunungan dengan kawasan industri aktif (KIK). Cocok untuk lahan industri garment, agrowisata, perkebunan, dan peternakan dengan udara sejuk dan tanah subur.',tags:['🏭 Kawasan Industri','👕 Garment','🌿 Agrowisata','🌾 Perkebunan']},
+  boyolali:{nama:'Boyolali',prov:'Jawa Tengah',desc:'Kota susu dengan perkembangan kawasan industri pesat. Dekat Bandara Adi Soemarmo, sangat ideal untuk lahan industri, peternakan sapi, dan perumahan berkembang.',tags:['✈️ Dekat Bandara','🏭 Industri','🐄 Peternakan Sapi','🏡 Perumahan']},
+  sragen:{nama:'Sragen',prov:'Jawa Tengah',desc:'Lokasi kantor pusat PT. GO INTERNASIONAL. Kabupaten dengan potensi lahan industri, pertanian, dan peternakan yang luas. Jalur strategis Solo–Surabaya via Purwodadi.',tags:['📍 Kantor Pusat','🌾 Pertanian','🐄 Peternakan','🛣️ Jalur Strategis']},
+  sukoharjo:{nama:'Sukoharjo',prov:'Jawa Tengah',desc:'Penyangga Kota Solo dengan pertumbuhan industri mebel dan garment yang signifikan. Potensi lahan komersial, perumahan, dan kawasan industri sangat tinggi.',tags:['🛋️ Industri Mebel','👕 Garment','🏡 Perumahan','🌆 Suburban Solo']},
+  salatiga:{nama:'Salatiga',prov:'Jawa Tengah',desc:'Kota sejuk di dataran tinggi, berkembang sebagai kota hunian premium dan pendidikan. Potensi properti residensial, kos mahasiswa, dan agrowisata sangat menjanjikan.',tags:['🎓 Kota Pendidikan','🌡️ Udara Sejuk','🏡 Hunian Premium','🌿 Agrowisata']},
+  batang:{nama:'Batang',prov:'Jawa Tengah',desc:'Kawasan Industri Terpadu Batang (KITB) — salah satu kawasan industri terbesar di Asia Tenggara. Sangat potensial untuk lahan industri garment, tekstil, dan logistik pesisir.',tags:['🏭 KITB Industri','👕 Garment & Tekstil','⚓ Pesisir Utara','🌏 Investasi Global']},
+  kudus:{nama:'Kudus',prov:'Jawa Tengah',desc:'Pusat industri dengan ekonomi tinggi di Jawa Tengah. Terkenal dengan industri manufaktur, rokok, dan tekstil. Potensi lahan komersial dan industri sangat besar.',tags:['🏭 Industri','🧵 Tekstil & Garment','🛒 Komersial','💰 Ekonomi Tinggi']},
+  dll:{nama:'Wilayah Lainnya',prov:'Jawa Tengah & DIY',desc:'Kami tidak terbatas pada wilayah di atas. PT. GO INTERNASIONAL siap melayani pencarian lahan di seluruh wilayah Jawa Tengah, DIY, dan sekitarnya sesuai kebutuhan spesifik Anda.',tags:['🗺️ Se-Jawa Tengah','🌐 DIY & Sekitarnya','📞 Hubungi Kami','🤝 Sesuai Kebutuhan']},
+};
+
+function selectArea(el,key){
+  document.querySelectorAll('.area-item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+  const d=areaDB[key];
+  document.getElementById('detNama').textContent=d.nama;
+  document.getElementById('detProv').textContent=d.prov;
+  document.getElementById('detDesc').textContent=d.desc;
+  document.getElementById('detTags').innerHTML=d.tags.map(t=>`<span class="a-tag">${t}</span>`).join('');
+  const btn=document.getElementById('detCTA');
+  btn.textContent=`Tanyakan Lahan di ${d.nama} →`;
+  btn.onclick=()=>tanyaArea(d.nama);
+}
+
+function tanyaArea(nama){
+  const msg=encodeURIComponent(`Halo PT. GO INTERNASIONAL,\n\nSaya tertarik dengan penawaran lahan di area *${nama}*.\n\nMohon informasi lebih lanjut mengenai ketersediaan dan harga lahan di wilayah tersebut.\n\nTerima kasih.`);
+  window.open(`https://wa.me/6282118061811?text=${msg}`,'_blank');
+}
+
+function tanyaPeruntukan(jenis){
+  const msg=encodeURIComponent(`Halo PT. GO INTERNASIONAL,\n\nSaya tertarik dengan *${jenis}* dan ingin berkonsultasi mengenai ketersediaan lahan yang sesuai.\n\nMohon bantuannya.\n\nTerima kasih.`);
+  window.open(`https://wa.me/6282118061811?text=${msg}`,'_blank');
+}
+
+function sendWA(){
+  const nama=document.getElementById('nama').value.trim();
+  const wa=document.getElementById('wa').value.trim();
+  const kep=document.getElementById('keperluan').value;
+  const pesan=document.getElementById('pesan').value.trim();
+  if(!nama||!wa||!kep){showToast('⚠️ Mohon lengkapi nama, nomor WA, dan keperluan.','#b91c1c');return;}
+  const msg=encodeURIComponent(`Halo PT. GO INTERNASIONAL,\n\nNama: ${nama}\nNo. WA: ${wa}\nKeperluan: ${kep}\n\n${pesan?'Pesan:\n'+pesan:''}\n\nTerima kasih.`);
+  window.open(`https://wa.me/6282118061811?text=${msg}`,'_blank');
+  showToast('✅ Mengarahkan ke WhatsApp...','#1b5e35');
+}
+
+function showToast(msg,bg='#1b5e35'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.style.background=bg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+</script>
+</body>
+</html>
